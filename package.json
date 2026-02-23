@@ -5,7 +5,7 @@
     "dev:pg": "DB_TYPE=pgsql npm run dev:general",
     "dev:mysql": "DB_TYPE=mysql npm run dev:general",
     "dev:general": "npm run db:deploy && npm run db:generate && next dev",
-    "build": "DB_TYPE=pgsql npm run db:generate && DB_TYPE=pgsql npm run db:deploy && next build && npm run build:widget",
+    "build": "prisma generate --schema ./prisma/pgsql/schema.prisma && next build && npm run build:widget",
     "build:without-migrate": "npm run db:generate && next build && npm run build:widget",
     "db:deploy": "prisma migrate deploy --schema ./prisma/$DB_TYPE/schema.prisma",
     "db:generate": "prisma generate --schema ./prisma/$DB_TYPE/schema.prisma",
@@ -70,7 +70,7 @@
     "tailwindcss": "^2.1.1",
     "turndown": "^7.0.0",
     "vite": "^2.1.5",
-    "xml2json": "^0.12.0"
+    "xml2json-light": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
