@@ -1,6 +1,6 @@
 import { prisma } from '../utils.server'
 
-const parser = require('xml2json')
+const parser = require('xml2json-light')
 import TurndownService from 'turndown'
 import { statService } from './stat.service'
 const turndownService = new TurndownService()
